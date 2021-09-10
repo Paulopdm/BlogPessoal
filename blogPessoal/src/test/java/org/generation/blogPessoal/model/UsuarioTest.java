@@ -23,7 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 public class UsuarioTest {
 
 	public Usuario usuario;
-	public Usuario usuarioErro = new Usuario();
+	public Usuario usuarioNulo = new Usuario();
 	
 	@Autowired
 	private ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -50,11 +50,11 @@ public class UsuarioTest {
 	
 	@Test
 	@DisplayName("✖ Não Valida Atributos Nulos")
-	void testNaoValidarAtributos() {
+	void testNaoValidaAtributos() {
 
-		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuarioErro);
+		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuarioNulo);
 		System.out.println(violacao.toString());
 
-		assertFalse(violacao.isEmpty());
+		assertTrue(violacao.isEmpty());
 	}
 }
