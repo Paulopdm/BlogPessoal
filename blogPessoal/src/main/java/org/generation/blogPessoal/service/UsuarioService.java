@@ -1,6 +1,7 @@
 package org.generation.blogPessoal.service;
 
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Optional;
 import org.apache.commons.codec.binary.Base64;
 import org.generation.blogPessoal.model.UserLogin;
@@ -72,5 +73,10 @@ public class UsuarioService {
 
 		}
 	}
+	
+	public List<Usuario> listarUsuarios(){
+		return repository.findAll();
+	}
+	
 
 }
